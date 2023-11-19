@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: 'postgres:${DB_IMAGE_TAG}'
+    environment:
+      - 'POSTGRES_DB=${DB_NAME}'
+      - 'POSTGRES_PASSWORD=${DB_PASS}'
+      - 'POSTGRES_USER=${DB_USER}'
+    ports:
+      - ${DB_HOST}:${DB_PORT}:5432
+      # - '5432'
