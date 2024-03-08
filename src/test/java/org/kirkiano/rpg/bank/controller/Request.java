@@ -59,6 +59,17 @@ public class Request {
                            url, body, uriVariables);
     }
 
+    /**
+     * Creates a GraphQL request
+     *
+     * @param body Request body
+     * @return Request
+     */
+    public static Request graphql(String body) {
+        var url = UriComponentsBuilder.fromPath("/graphql");
+        return new Request(MockMvcRequestBuilders::post, url, body);
+    }
+
     ///////////////////////////////////////////////////////
 
     @FunctionalInterface
@@ -73,12 +84,21 @@ public class Request {
 
     private Request(Maker maker,
                     UriComponentsBuilder url,
+                    String body,
+                    Object... uriVariables)
+    {
+        this(maker, url, uriVariables);
+        this.request = this.request.content(body);
+    }
+
+    private Request(Maker maker,
+                    UriComponentsBuilder url,
                     Object body,
                     Object... uriVariables)
         throws JsonProcessingException
     {
         this(maker, url, uriVariables);
-        String bodyString = body instanceof String ?
+        String bodyString = body instanceof String ? // defensive
             (String) body : new ObjectMapper().writeValueAsString(body);
         this.request = this.request.content(bodyString);
     }

@@ -89,6 +89,17 @@ Note: The {@link} tag has a bug in overview documents in Java SE 1.2.
 The text appears correctly but has no link.
 ```
 
+## Testing
+
+`make test`
+
+### graphiql
+
+`make run`, then point browser to `http://localhost:8080/graphiql`.
+
+Enter `query { accounts { id } }` in the query window (top left, not bottom pane).
+Response should appear in the right-hand pane.
+
 ## TODO
 
 Containerize.

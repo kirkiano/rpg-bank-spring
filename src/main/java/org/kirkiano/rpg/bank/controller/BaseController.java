@@ -4,10 +4,10 @@ import org.kirkiano.rpg.bank.dto.AccountMapper;
 import org.kirkiano.rpg.bank.service.AccountService;
 
 
-class BaseController {
+public class BaseController {
 
-    BaseController(AccountService accountService,
-                   AccountMapper mapper)
+    public BaseController(AccountService accountService,
+                          AccountMapper mapper)
     {
         this.accountService = accountService;
         this.mapper = mapper;

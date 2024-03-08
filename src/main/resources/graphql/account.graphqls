@@ -1,0 +1,15 @@
+
+type Account {
+    id: ID!
+}
+
+# Application's root query
+type Query {
+    accounts: [Account]!
+}
+
+
+# Application's root mutation
+type Mutation {
+    createAccount(charId: String!): Account!
+}

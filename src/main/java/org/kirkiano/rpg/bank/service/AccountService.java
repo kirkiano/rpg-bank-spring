@@ -76,6 +76,13 @@ public class AccountService {
         this.accountRepo = accountRepo;
     }
 
+    /**
+     * Retrieve all accounts
+     * @return the accounts
+     */
+    public List<Account> getAllAccounts() {
+        return this.accountRepo.findAll();
+    }
 
     /**
      * Retrieve a page-worth of accounts
