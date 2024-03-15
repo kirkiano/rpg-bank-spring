@@ -1,4 +1,4 @@
-package org.kirkiano.rpg.bank;
+package org.kirkiano.finance.bank;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

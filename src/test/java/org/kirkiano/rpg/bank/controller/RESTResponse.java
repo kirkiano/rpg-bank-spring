@@ -1,4 +1,4 @@
-package org.kirkiano.rpg.bank.controller;
+package org.kirkiano.finance.bank.controller;
 
 import java.io.UnsupportedEncodingException;
 
@@ -13,12 +13,12 @@ import static com.fasterxml.jackson.databind.node.JsonNodeType.ARRAY;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
-import org.kirkiano.rpg.bank.config.Constants;
-import org.kirkiano.rpg.bank.controller.error.Error;
-import org.kirkiano.rpg.bank.controller.error.ErrorCode;
-import org.kirkiano.rpg.bank.model.CharId;
-import org.kirkiano.rpg.bank.model.Money;
-import static org.kirkiano.rpg.bank.controller.RestControllerIntegrationTest.jsonPred0;
+import org.kirkiano.finance.bank.config.Constants;
+import org.kirkiano.finance.bank.controller.error.Error;
+import org.kirkiano.finance.bank.controller.error.ErrorCode;
+import org.kirkiano.finance.bank.model.CharId;
+import org.kirkiano.finance.bank.model.Money;
+import static org.kirkiano.finance.bank.controller.RestControllerIntegrationTest.jsonPred0;
 
 
 /**
@@ -114,7 +114,7 @@ public class RESTResponse {
 
     /**
      * Assert that the body of this response is a serialized
-     * {@link org.kirkiano.rpg.bank.dto.AccountDTO} with the
+     * {@link org.kirkiano.finance.bank.dto.AccountDTO} with the
      * given parameters.
      *
      * @param charId ID of the account's owner

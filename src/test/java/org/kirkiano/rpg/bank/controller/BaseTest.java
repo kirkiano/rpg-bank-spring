@@ -1,4 +1,4 @@
-package org.kirkiano.rpg.bank.controller;
+package org.kirkiano.finance.bank.controller;
 
 import java.util.function.Supplier;
 
@@ -8,12 +8,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import org.kirkiano.rpg.bank.exn.AccountAlreadyExistsException;
-import org.kirkiano.rpg.bank.exn.NegativeBalanceException;
-import org.kirkiano.rpg.bank.model.Account;
-import org.kirkiano.rpg.bank.model.CharId;
-import org.kirkiano.rpg.bank.model.Money;
-import org.kirkiano.rpg.bank.service.AccountService;
+import org.kirkiano.finance.bank.exn.AccountAlreadyExistsException;
+import org.kirkiano.finance.bank.exn.NegativeBalanceException;
+import org.kirkiano.finance.bank.model.Account;
+import org.kirkiano.finance.bank.model.CharId;
+import org.kirkiano.finance.bank.model.Money;
+import org.kirkiano.finance.bank.service.AccountService;
 
 
 /**
@@ -22,7 +22,7 @@ import org.kirkiano.rpg.bank.service.AccountService;
 @RunWith(SpringRunner.class)
 @SpringBootTest(
     webEnvironment = SpringBootTest.WebEnvironment.MOCK,
-    classes = org.kirkiano.rpg.bank.BankApplication.class
+    classes = org.kirkiano.finance.bank.BankApplication.class
 )
 @TestPropertySource(
     locations = "classpath:application-integrationtest.properties"

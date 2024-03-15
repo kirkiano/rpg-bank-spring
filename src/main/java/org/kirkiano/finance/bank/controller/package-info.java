@@ -1,5 +1,5 @@
 /**
- * Tests of RPG bank's controllers
+ * RPG Bank's Spring controllers
  * <p>
  * Copyright 2023 kirkiano. All rights reserved.
  *

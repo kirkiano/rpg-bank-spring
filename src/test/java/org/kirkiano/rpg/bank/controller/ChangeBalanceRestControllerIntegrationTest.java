@@ -1,4 +1,4 @@
-package org.kirkiano.rpg.bank.controller;
+package org.kirkiano.finance.bank.controller;
 
 import java.util.Map;
 
@@ -6,18 +6,18 @@ import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.kirkiano.rpg.bank.config.Constants;
-import org.kirkiano.rpg.bank.controller.error.ErrorCode;
-import org.kirkiano.rpg.bank.dto.BalanceDTO;
-import org.kirkiano.rpg.bank.dto.ChangeBalanceDTO;
-import org.kirkiano.rpg.bank.model.Account;
-import org.kirkiano.rpg.bank.model.Money;
-import org.kirkiano.rpg.bank.controller.error.Error;
+import org.kirkiano.finance.bank.config.Constants;
+import org.kirkiano.finance.bank.controller.error.ErrorCode;
+import org.kirkiano.finance.bank.dto.BalanceDTO;
+import org.kirkiano.finance.bank.dto.ChangeBalanceDTO;
+import org.kirkiano.finance.bank.model.Account;
+import org.kirkiano.finance.bank.model.Money;
+import org.kirkiano.finance.bank.controller.error.Error;
 
 
 /**
  * Integration tests for
- * {@link org.kirkiano.rpg.bank.controller.ChangeBalanceController}
+ * {@link org.kirkiano.finance.bank.controller.ChangeBalanceController}
  */
 public class ChangeBalanceRestControllerIntegrationTest
     extends RestControllerIntegrationTest

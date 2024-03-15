@@ -1,4 +1,4 @@
-package org.kirkiano.rpg.bank.controller;
+package org.kirkiano.finance.bank.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

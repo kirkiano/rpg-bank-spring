@@ -9,7 +9,7 @@
 
 
 @NonNullFields @NonNullApi
-package org.kirkiano.rpg.bank;
+package org.kirkiano.finance.bank;
 
 import org.springframework.lang.NonNullApi;
 import org.springframework.lang.NonNullFields;

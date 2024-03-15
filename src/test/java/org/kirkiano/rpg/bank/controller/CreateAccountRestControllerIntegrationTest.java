@@ -1,4 +1,4 @@
-package org.kirkiano.rpg.bank.controller;
+package org.kirkiano.finance.bank.controller;
 
 import java.util.Map;
 
@@ -7,15 +7,15 @@ import com.jayway.jsonpath.JsonPath;
 import org.springframework.http.HttpStatus;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.kirkiano.rpg.bank.config.Constants;
-import org.kirkiano.rpg.bank.controller.error.Error;
-import org.kirkiano.rpg.bank.controller.error.ErrorCode;
-import org.kirkiano.rpg.bank.dto.AccountDTO;
-import org.kirkiano.rpg.bank.dto.CreateAccountDTO;
-import org.kirkiano.rpg.bank.exn.UnknownCharIdException;
-import org.kirkiano.rpg.bank.model.Account;
-import org.kirkiano.rpg.bank.model.Money;
-import org.kirkiano.rpg.bank.model.CharId;
+import org.kirkiano.finance.bank.config.Constants;
+import org.kirkiano.finance.bank.controller.error.Error;
+import org.kirkiano.finance.bank.controller.error.ErrorCode;
+import org.kirkiano.finance.bank.dto.AccountDTO;
+import org.kirkiano.finance.bank.dto.CreateAccountDTO;
+import org.kirkiano.finance.bank.exn.UnknownCharIdException;
+import org.kirkiano.finance.bank.model.Account;
+import org.kirkiano.finance.bank.model.Money;
+import org.kirkiano.finance.bank.model.CharId;
 
 
 /**

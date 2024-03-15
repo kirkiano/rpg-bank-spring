@@ -1,5 +1,5 @@
 /**
- * Tests of RPG bank's controllers
+ * RPG Bank's persistent models
  * <p>
  * Copyright 2023 kirkiano. All rights reserved.
  *
@@ -9,7 +9,7 @@
 
 
 @NonNullFields @NonNullApi
-package org.kirkiano.finance.bank.controller;
+package org.kirkiano.finance.bank.model;
 
 import org.springframework.lang.NonNullApi;
 import org.springframework.lang.NonNullFields;

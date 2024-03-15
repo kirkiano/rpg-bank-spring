@@ -1,4 +1,4 @@
-package org.kirkiano.rpg.bank.controller;
+package org.kirkiano.finance.bank.controller;
 
 import java.text.MessageFormat;
 
@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.web.util.UriComponentsBuilder;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-import org.kirkiano.rpg.bank.dto.AccountMapper;
+import org.kirkiano.finance.bank.dto.AccountMapper;
 
 
 /**

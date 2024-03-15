@@ -1,11 +1,11 @@
-package org.kirkiano.rpg.bank.controller.graphql;
+package org.kirkiano.finance.bank.controller.graphql;
 
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 
-import org.kirkiano.rpg.bank.controller.CreateAccountController;
-import org.kirkiano.rpg.bank.controller.Request;
-import org.kirkiano.rpg.bank.controller.RestControllerIntegrationTest;
+import org.kirkiano.finance.bank.controller.CreateAccountController;
+import org.kirkiano.finance.bank.controller.Request;
+import org.kirkiano.finance.bank.controller.RestControllerIntegrationTest;
 
 
 /**

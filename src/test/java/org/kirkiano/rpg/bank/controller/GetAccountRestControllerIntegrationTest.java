@@ -1,15 +1,15 @@
-package org.kirkiano.rpg.bank.controller;
+package org.kirkiano.finance.bank.controller;
 
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 
-import org.kirkiano.rpg.bank.controller.error.Error;
-import org.kirkiano.rpg.bank.controller.error.ErrorCode;
-import org.kirkiano.rpg.bank.config.Constants;
-import org.kirkiano.rpg.bank.model.CharId;
-import org.kirkiano.rpg.bank.dto.AccountDTO;
-import org.kirkiano.rpg.bank.model.Account;
-import org.kirkiano.rpg.bank.model.Money;
+import org.kirkiano.finance.bank.controller.error.Error;
+import org.kirkiano.finance.bank.controller.error.ErrorCode;
+import org.kirkiano.finance.bank.config.Constants;
+import org.kirkiano.finance.bank.model.CharId;
+import org.kirkiano.finance.bank.dto.AccountDTO;
+import org.kirkiano.finance.bank.model.Account;
+import org.kirkiano.finance.bank.model.Money;
 
 
 /**
