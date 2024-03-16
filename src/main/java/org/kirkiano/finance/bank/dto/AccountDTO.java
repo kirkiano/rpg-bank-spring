@@ -5,7 +5,7 @@ import org.kirkiano.finance.bank.model.Money;
 
 
 /**
- * Data transfer object returned by server to represent an existing account
+ * Data transfer object representing an account
  *
  * @param id Account ID
  * @param charId Owner's ID

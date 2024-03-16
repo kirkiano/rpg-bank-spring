@@ -3,13 +3,22 @@ type Account {
     id: ID!
 }
 
+
+type PersonalLoan {
+    id: ID!
+    apr: Float
+}
+
+
 # Application's root query
 type Query {
     accounts: [Account]!
+    personalLoans: [PersonalLoan]!
 }
 
 
-# Application's root mutation
-type Mutation {
-    createAccount(charId: String!): Account!
-}
+## Application's root mutation
+#type Mutation {
+#    createAccount(charId: String!): Account!
+#    createPersonalLoan(charId: String!): Account!
+#}

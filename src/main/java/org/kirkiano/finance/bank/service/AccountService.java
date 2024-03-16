@@ -29,44 +29,6 @@ import org.kirkiano.finance.bank.repository.AccountRepository;
 public class AccountService {
 
     /**
-     * Create a bank account
-     * <p>
-     * {@code balance} is nullable rather than {@code Optional}.
-     * (It is an anti-pattern to use the latter as a method parameter.
-     * See <a href="https://stackoverflow.com/a/26328555">here</a>
-     * and
-     * <a href="https://www.baeldung.com/java-optional#misuages">here</a>.)
-     *
-     * @param charId owner's ID
-     * @param balance Initial balance. If null, the balance will be zero.
-     * @return Account
-     * @throws AccountAlreadyExistsException Guards against multiplying accounts
-     * @throws NegativeBalanceException Guards against overdraft
-     */
-    public Account createAccount(CharId charId, @Nullable Money balance)
-        throws AccountAlreadyExistsException,
-               NegativeBalanceException
-    {
-        try {
-            balance = balance == null ? Money.ZERO : balance;
-            Account account = Account.create(charId, balance);
-            this.accountRepo.save(account);
-            log.info("Created {}", account);
-            return account;
-        }
-        catch (DataIntegrityViolationException _ex) {
-            log.warn("Attempted to create duplicate account for {}", charId);
-            throw new AccountAlreadyExistsException(charId);
-        }
-        catch (NegativeBalanceException ex) {
-            log.warn("Attempted to create account with balance {} for {}",
-                        balance, charId);
-            throw ex;
-        }
-    }
-
-
-    /**
      * Constructor
      *
      * @param accountRepo The accounts repo (an injected dependency).
@@ -83,6 +45,45 @@ public class AccountService {
     public List<Account> getAllAccounts() {
         return this.accountRepo.findAll();
     }
+
+
+    /**
+     * Create a bank account
+     * <p>
+     * {@code balance} is nullable rather than {@code Optional}.
+     * (It is an anti-pattern to use the latter as a method parameter.
+     * See <a href="https://stackoverflow.com/a/26328555">here</a>
+     * and
+     * <a href="https://www.baeldung.com/java-optional#misuages">here</a>.)
+     *
+     * @param charId owner's ID
+     * @param balance Initial balance. If null, the balance will be zero.
+     * @return Account
+     * @throws AccountAlreadyExistsException Guards against multiplying accounts
+     * @throws NegativeBalanceException Guards against overdraft
+     */
+    public Account createAccount(CharId charId, @Nullable Money balance)
+        throws AccountAlreadyExistsException,
+        NegativeBalanceException
+    {
+        try {
+            balance = balance == null ? Money.ZERO : balance;
+            Account account = Account.create(charId, balance);
+            this.accountRepo.save(account);
+            log.info("Created {}", account);
+            return account;
+        }
+        catch (DataIntegrityViolationException _ex) {
+            log.warn("Attempted to create duplicate account for {}", charId);
+            throw new AccountAlreadyExistsException(charId);
+        }
+        catch (NegativeBalanceException ex) {
+            log.warn("Attempted to create account with balance {} for {}",
+                balance, charId);
+            throw ex;
+        }
+    }
+
 
     /**
      * Retrieve a page-worth of accounts

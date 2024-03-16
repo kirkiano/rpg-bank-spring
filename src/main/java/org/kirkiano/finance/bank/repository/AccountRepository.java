@@ -12,7 +12,7 @@ import org.kirkiano.finance.bank.model.Account;
 
 
 /**
- * The data store containing all accounts
+ * Data store of accounts
  */
 // @RepositoryRestResource
 @Repository

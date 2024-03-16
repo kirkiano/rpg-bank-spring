@@ -7,10 +7,12 @@ export $(shell sed 's/=.*//' .env)
 .PHONY: build \
 		build_tests \
 		build_all \
-        run \
-        launch_db \
+        clean \
+		compose_up \
         install_dependencies \
-        clean
+        launch_db \
+        run \
+        up
 #        migrate \
 
 
@@ -19,7 +21,7 @@ build_all: build build_tests
 build:
 	mvn compile
 
-up: launch_db run
+up: compose_up run
 
 run: args
 	spring_profiles_active=$(ENVIRONMENT) mvn spring-boot:run
@@ -33,13 +35,20 @@ test: version
 #migrate:
 #	mvn clean flyway:migrate -Dflyway.configFiles=flyway.conf
 
-launch_db: db
-	docker run --name pg \
-		-e POSTGRES_DB=$(DB_NAME) \
-		-e POSTGRES_USER=$(DB_USER) \
-		-e POSTGRES_PASSWORD=$(DB_PASS) \
-		-p $(DB_HOST):$(DB_PORT):5432 \
-		-d postgres:$(DB_IMAGE_TAG)
+compose_up:
+	docker-compose up -d
+
+#launch_db: db
+#	docker run --name pg \
+#		-e POSTGRES_DB=$(DB_NAME) \
+#		-e POSTGRES_USER=$(DB_USER) \
+#		-e POSTGRES_PASSWORD=$(DB_PASS) \
+#		-p $(DB_HOST):$(DB_PORT):5432 \
+#		-d postgres:$(DB_IMAGE_TAG)
+
+# ensure 'make launch_db' already run
+psql: db
+	psql -h $(DB_HOST) -p $(DB_PORT) -U $(DB_USER) $(DB_NAME)
 
 doc:
 	mvn javadoc:javadoc

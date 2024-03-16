@@ -1,10 +1,13 @@
+
+
 services:
+
   postgres:
     image: 'postgres:${DB_IMAGE_TAG}'
+    container_name: finpg
     environment:
       - 'POSTGRES_DB=${DB_NAME}'
-      - 'POSTGRES_PASSWORD=${DB_PASS}'
       - 'POSTGRES_USER=${DB_USER}'
+      - 'POSTGRES_PASSWORD=${DB_PASS}'
     ports:
       - ${DB_HOST}:${DB_PORT}:5432
-      # - '5432'

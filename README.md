@@ -49,8 +49,9 @@ make run
 ### Client
 
 ```
-psql -h 127.0.0.1 -p <port> -U <user>
+make psql
 ```
+Again, this uses the vars defined in `.env`.
 
 ## DB migrations
 
