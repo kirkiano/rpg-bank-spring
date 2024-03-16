@@ -101,6 +101,8 @@ The text appears correctly but has no link.
 Enter `query { accounts { id } }` in the query window (top left, not bottom pane).
 Response should appear in the right-hand pane.
 
+Sample mutation: `mutation { createAnAccount(charId: 3142367) {id} }`
+
 ## TODO
 
 Containerize.

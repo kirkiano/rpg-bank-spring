@@ -7,6 +7,7 @@ import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.data.domain.*;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
@@ -64,22 +65,26 @@ public class AccountService {
      */
     public Account createAccount(CharId charId, @Nullable Money balance)
         throws AccountAlreadyExistsException,
-        NegativeBalanceException
+               NegativeBalanceException
     {
         try {
             balance = balance == null ? Money.ZERO : balance;
             Account account = Account.create(charId, balance);
             this.accountRepo.save(account);
-            log.info("Created {}", account);
             return account;
         }
-        catch (DataIntegrityViolationException _ex) {
+        catch (DuplicateKeyException _ex) {
             log.warn("Attempted to create duplicate account for {}", charId);
             throw new AccountAlreadyExistsException(charId);
         }
+        catch (DataIntegrityViolationException ex) {
+            log.warn("Data integrity violation when attempting to create account for {}: {}",
+                     charId, ex);
+            throw ex;
+        }
         catch (NegativeBalanceException ex) {
             log.warn("Attempted to create account with balance {} for {}",
-                balance, charId);
+                     balance, charId);
             throw ex;
         }
     }
@@ -131,8 +136,8 @@ public class AccountService {
         throws UnknownCharIdException
     {
         List<Account> accounts = this.accountRepo.findByCharId(charId);
-        if (accounts.size() == 0) throw new UnknownCharIdException(charId);
-        else return accounts.get(0);
+        if (accounts.isEmpty()) throw new UnknownCharIdException(charId);
+        else return accounts.getFirst();
     }
 
     ///////////////////////////////////////////////////////

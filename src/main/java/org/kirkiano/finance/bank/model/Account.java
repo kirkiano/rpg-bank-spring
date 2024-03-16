@@ -4,6 +4,7 @@ import java.text.MessageFormat;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 import org.kirkiano.finance.bank.config.Constants;
 import org.kirkiano.finance.bank.exn.NegativeBalanceException;
@@ -12,6 +13,7 @@ import org.kirkiano.finance.bank.exn.NegativeBalanceException;
 /**
  * JPA model of bank account
  */
+@Slf4j
 @Entity(name = "Account")
 @Table(name = "account")
 @Getter @Setter @NoArgsConstructor
@@ -82,7 +84,7 @@ public class Account extends BaseEntity {
 
 
     @Convert(converter = CharIdLongConverter.class)
-    @Column(name = "cid",
+    @Column(name = "char_id",
             nullable = false,
             unique = true)
     private CharId charId;

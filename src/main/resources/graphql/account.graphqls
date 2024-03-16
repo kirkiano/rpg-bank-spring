@@ -17,8 +17,8 @@ type Query {
 }
 
 
-## Application's root mutation
-#type Mutation {
-#    createAccount(charId: String!): Account!
-#    createPersonalLoan(charId: String!): Account!
-#}
+# Application's root mutation
+type Mutation {
+    createAnAccount(charId: Int!): Account!
+    # createPersonalLoan(charId: String!): Account!
+}

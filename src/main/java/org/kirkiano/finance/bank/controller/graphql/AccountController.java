@@ -5,12 +5,17 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 import org.kirkiano.finance.bank.controller.BaseController;
 import org.kirkiano.finance.bank.dto.AccountDTO;
 import org.kirkiano.finance.bank.dto.AccountMapper;
+import org.kirkiano.finance.bank.exn.AccountAlreadyExistsException;
+import org.kirkiano.finance.bank.exn.NegativeBalanceException;
+import org.kirkiano.finance.bank.model.CharId;
+import org.kirkiano.finance.bank.model.Money;
 import org.kirkiano.finance.bank.service.AccountService;
 
 
@@ -31,6 +36,16 @@ public class AccountController extends BaseController {
             .stream()
             .map(this.mapper::toDTO)
             .collect(Collectors.toList());
+    }
+
+    @MutationMapping
+    public AccountDTO createAnAccount(@Argument long charId)
+        throws AccountAlreadyExistsException,
+               NegativeBalanceException
+    {
+        var cid = new CharId(charId);
+        var account = this.accountService.createAccount(cid, Money.ZERO);
+        return this.mapper.toDTO(account);
     }
 
     @QueryMapping
