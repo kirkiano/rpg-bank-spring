@@ -23,10 +23,8 @@ public class MoneyScalar {
                 @NotNull @SuppressWarnings("unused") Locale locale
             ) throws CoercingSerializeException
             {
-                if (data instanceof Money) {
-                    return ((Money) data).floatValue();
-                }
-                return null;
+                return (data instanceof Money) ?
+                    ((Money) data).floatValue() : null;
             }
 
             public Money parseValue(
