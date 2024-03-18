@@ -1,10 +1,11 @@
 
 scalar Money
+scalar CharId
 
 
 type Account {
     id: ID!
-    charId: ID!
+    charId: CharId!
     balance: Money!
 }
 
