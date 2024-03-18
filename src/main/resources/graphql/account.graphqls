@@ -4,6 +4,7 @@ scalar Money
 
 type Account {
     id: ID!
+    charId: ID!
     balance: Money!
 }
 
