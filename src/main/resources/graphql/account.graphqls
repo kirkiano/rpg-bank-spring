@@ -1,6 +1,10 @@
 
+scalar Money
+
+
 type Account {
     id: ID!
+    balance: Money!
 }
 
 
